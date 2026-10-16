@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Contacto · MesaPara4</title>
+  <meta name="description" content="Escríbenos por incidencias técnicas, contratación del servicio para empresas, sugerencias o dudas sobre tus datos (RGPD).">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/favicon.ico">
+  
+</head>
+<body>
+   <div id="site-header"></div>
+
+  <main>
+
+  <section style="padding-bottom:40px;">
+    <div class="container">
+      <div class="section-head left reveal">
+        <span class="badge">Contacto</span>
+        <h1>¿En qué podemos ayudaros?</h1>
+        <p class="text-muted" style="max-width:60ch;">Ya sea una incidencia técnica, una consulta sobre vuestros datos, contratar el servicio para empresas o simplemente contarnos qué os parece la app.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="grid-2" style="align-items:start;">
+        <div class="reveal">
+          <div class="form-success" role="status"></div>
+          <div class="form-error" role="alert"></div>
+          <form id="contact-form" novalidate>
+            <div class="field form-honeypot" aria-hidden="true">
+              <label for="empresa_web">No rellenar este campo</label>
+              <input type="text" id="empresa_web" name="empresa_web" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="field">
+              <label for="motivo">Motivo</label>
+              <select id="motivo" name="motivo" required>
+                <option value="">Selecciona un motivo</option>
+                <option value="incidencia">Incidencia técnica en la app</option>
+                <option value="empresas">Contratar el servicio para empresas</option>
+                <option value="sugerencia">Sugerencia o valoración</option>
+                <option value="rgpd">Eliminación de cuenta / Consulta sobre mis datos (RGPD)</option>
+                <option value="general">Consulta general</option>
+              </select>
+            </div>
+
+            <!-- Campo opcional para adjuntar captura de pantalla -->
+            <div class="field">
+              <label for="captura">Adjuntar captura de pantalla (opcional)</label>
+              <input 
+                type="file" 
+                id="captura" 
+                name="captura" 
+                accept="image/png, image/jpeg, image/webp" 
+              >
+              <small class="help-text">Formatos permitidos: PNG, JPG, WEBP.</small>
+            </div>
+
+            <div class="field">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" required></textarea>
+            </div>
+
+            <div class="checkbox-field">
+              <input type="checkbox" id="legal" name="legal" required>
+              <label for="legal">He leído y acepto el <a href="politica-de-privacidad.html">Aviso legal y la Política de protección de datos</a>.</label>
+            </div>
+
+            <button type="submit" class="btn btn-gradient btn-lg">Enviar mensaje</button>
+          </form>
+        </div>
+
+        <div class="card reveal">
+          <h2>Antes de escribir</h3>
+          <p class="text-muted">Para incidencias técnicas, podéis mandarnos una captura de la pantalla que estabais usando y contarnos qué esperabais que pasara, nos ayuda muchísimo.</p>
+          <p class="text-muted">Para <strong>eliminar vuestra cuenta de MesaPara4</strong> o para dudas sobre vuestros datos, seleccionad la opción correspondiente en el desplegable o consultad nuestra <a href="politica-de-privacidad.html">Política de privacidad</a>.</p>
+          <p class="text-muted">Solemos responder en 2-3 días laborables.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
