@@ -1,15 +1,15 @@
 <p align="center">
-  <img src="assets/logo.png" alt="MesaPara4 Logo" width="160">
+  <img src="assets/logo.png" alt="MesaPara3 Logo" width="160">
 </p>
 
 <h1 align="center">MesaPara4 — Web Oficial</h1>
 
 <p align="center">
-  <b>El sitio web oficial y landing page de la app para conectar parejas con parejas.</b>
+  <b>El sitio web oficial y landing page de la app para salir de la rutina y hacer planes REALES.</b>
 </p>
 
 <p align="center">
-  <a href="https://mesapara4.es">
+  <a href="https://mesapara3.es">
     <img src="https://img.shields.io/badge/Website-mesapara4.es-ff4b5c?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Sitio Web" />
   </a>
   <img src="https://img.shields.io/badge/Estado-Publicado-brightgreen?style=for-the-badge" alt="Estado del Proyecto" />
@@ -19,7 +19,7 @@
 
 ## 📌 Sobre el proyecto
 
-Esta web actúa como la landing page oficial de **MesaPara4**. Está diseñada para presentar la app, captar a los primeros usuarios, ofrecer la guía de uso, facilitar vías de contacto y alojar toda la documentación legal requerida.
+Esta es la web oficial de **MesaPara3**. Está diseñada para presentar la app, captar a los primeros usuarios, ofrecer la guía de uso, facilitar vías de contacto y alojar toda la documentación legal requerida.
 
 ---
 
@@ -48,12 +48,12 @@ Esta web actúa como la landing page oficial de **MesaPara4**. Está diseñada p
 
 ## ☕ Apoya el proyecto
 
-Si te gusta **MesaPara4** y quieres apoyar su desarrollo continuado, puedes invitarme a un café a través de Ko-fi:
+Si te gusta **MesaPara3** y quieres apoyar su desarrollo continuado, puedes invitarme a un café través de Ko-fi:
 
 [![Ko-Fi](https://img.shields.io/badge/Invítame_un_café-Ko--fi-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/mesapara4)
 
 ## ⚖️ Licencia y Propiedad Intelectual
 
-© 2026 **MesaPara4**. Todos los derechos reservados.
+© 2026 **MesaPara3**. Todos los derechos reservados.
 
 > Este código fuente, diseño, elementos gráficos y marca comercial pertenecen a sus respectivos autores. No está permitida la reproducción, distribución o modificación total o parcial de este repositorio sin autorización previa por escrito.
