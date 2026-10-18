@@ -2,7 +2,7 @@
   <img src="assets/logo.png" alt="MesaPara3 Logo" width="160">
 </p>
 
-<h1 align="center">MesaPara4 — Web Oficial</h1>
+<h1 align="center">MesaPara3 — Web Oficial</h1>
 
 <p align="center">
   <b>El sitio web oficial y landing page de la app para salir de la rutina y hacer planes REALES.</b>
@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://mesapara3.es">
-    <img src="https://img.shields.io/badge/Website-mesapara4.es-ff4b5c?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Sitio Web" />
+    <img src="https://img.shields.io/badge/Website-mesapara3.es-ff4b5c?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Sitio Web" />
   </a>
   <img src="https://img.shields.io/badge/Estado-Publicado-brightgreen?style=for-the-badge" alt="Estado del Proyecto" />
 </p>
@@ -50,7 +50,7 @@ Esta es la web oficial de **MesaPara3**. Está diseñada para presentar la app, 
 
 Si te gusta **MesaPara3** y quieres apoyar su desarrollo continuado, puedes invitarme a un café través de Ko-fi:
 
-[![Ko-Fi](https://img.shields.io/badge/Invítame_un_café-Ko--fi-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/mesapara4)
+[![Ko-Fi](https://img.shields.io/badge/Invítame_un_café-Ko--fi-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/mesapara3)
 
 ## ⚖️ Licencia y Propiedad Intelectual
 

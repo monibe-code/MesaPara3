@@ -558,6 +558,46 @@ a.card:hover .card-action {
   color: var(--color-text);
 }
 
+/* ---------- Barra de progreso de aportaciones ----------- */
+.goal-card {
+  background: #fff;
+  border: 1px solid rgba(18, 59, 120, 0.1);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 8px 30px rgba(18, 59, 120, 0.08);
+}
+.goal-progress {
+  height: 18px;
+  background: #E2E8F0;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 24px;
+}
+.goal-progress-fill {
+  height: 100%;
+  width: var(--pct, 24%);
+  min-width: 18px;                 /* que se vea siempre, aunque el % sea pequeño */
+  border-radius: 999px;
+  background: linear-gradient(90deg, #20A4A6, #375BA7);
+  animation: goal-fill 1.2s cubic-bezier(.22, 1, .36, 1) both;
+}
+@keyframes goal-fill {
+  from { width: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .goal-progress-fill { animation: none; }
+}
+.goal-numbers {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  color: #123B78;
+}
+.goal-note { margin-top: 12px; color: #475569; font-size: .95rem; }
+@media (prefers-reduced-motion: reduce) {
+  .goal-progress-fill { transition: none; }
+}
+
 /* ---------- Insignias (nivel 0 gris → nivel 3 dorado) ---------- */
 .badge-icon {
   width: 64px;
