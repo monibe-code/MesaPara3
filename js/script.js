@@ -107,6 +107,24 @@ if (contactForm) {
     successBox.style.display = 'none';
     errorBox.style.display = 'none';
 
+  // --- Validación de campos vacíos ---
+    const emptyField = REQUIRED_FIELDS
+      .map(name => contactForm.querySelector(`[name="${name}"]`))
+      .find(field => field && field.value.trim() === '');
+
+    if (emptyField) {
+      errorBox.textContent = 'Por favor, rellena todos los campos obligatorios.';
+      errorBox.style.display = 'block';
+      emptyField.focus();
+      return;
+    }
+
+    // Valida también el formato del email y demás reglas nativas (type="email", etc.)
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
+
     const honeypot = contactForm.querySelector('input[name="empresa_web"]');
     const elapsed = Date.now() - loadedAt;
 

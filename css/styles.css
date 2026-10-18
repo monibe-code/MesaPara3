@@ -569,18 +569,16 @@ a.card:hover .card-action {
   font-size: 1.6rem;
   margin-bottom: 16px;
 }
-.badge-icon.lvl-0 { background: linear-gradient(135deg, #E2E8F0, #CBD5E1); color: #54749B; }
-.badge-icon.lvl-1 { background: linear-gradient(135deg, #5EEAD4, #2DD4BF); color: #123B78; }
-.badge-icon.lvl-2 { background: var(--gradient-brand); color: #fff; }
-.badge-icon.lvl-3 { background: linear-gradient(135deg, #FBBF24, #F59E0B); color: #123B78; }
+.badge-icon.lvl-1 { background: linear-gradient(135deg, #a2eaf7, #00ca92); color: #00ca92; }
+.badge-icon.lvl-2 { background: linear-gradient(135deg, #7ff0f1, #135caf); color: #061f3b; }
+.badge-icon.lvl-3 { background: linear-gradient(135deg, #ebd993, #ffe066); color: #f5a300; }
 
 .badge-card { text-align: left; }
 .badge-levels { display: flex; gap: 8px; margin-top: 14px; }
 .badge-pip { width: 22px; height: 6px; border-radius: 999px; }
-.badge-pip.lvl-0 { background: #CBD5E1; }
-.badge-pip.lvl-1 { background: linear-gradient(90deg, #5EEAD4, #2DD4BF); }
-.badge-pip.lvl-2 { background: var(--gradient-brand); }
-.badge-pip.lvl-3 { background: linear-gradient(90deg, #FBBF24, #F59E0B); }
+.badge-pip.lvl-1 { background: linear-gradient(90deg, #40D5F1, #00ca92); }
+.badge-pip.lvl-2 { background: linear-gradient(90deg, #135caf, #061f3b ) }
+.badge-pip.lvl-3 { background: linear-gradient(90deg, #ffe066, #f5a300); }
 
 /* ---------- Legal ---------- */
 .legal-content h2 { margin-top: 2em; font-size: 1.3rem; }
