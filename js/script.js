@@ -133,12 +133,6 @@ if (contactForm) {
         return msgs.typeMismatch || 'El formato no es válido.';
       }
     }
-    // Tamaño máximo de la captura de pantalla
-    if (field.type === 'file' && field.files.length > 0) {
-      if (field.files[0].size > MAX_FILE_MB * 1024 * 1024) {
-        return `La imagen es demasiado grande. El límite es de ${MAX_FILE_MB} MB.`;
-      }
-    }
     return '';
   }
 
