@@ -515,6 +515,17 @@ a.card:hover .card-action {
 .form-success { background: #ECFDF5; color: #047857; }
 .form-error { background: #FEF2F2; color: #B91C1C; }
 
+.field-error {
+  display: none;
+  margin-top: .35rem;
+  font-size: .875rem;
+  color: #d93025; /* cámbialo por el rojo de tu paleta */
+}
+
+.is-invalid {
+  border-color: #d93025;
+}
+
 /* ---------- Guía de uso: mock de pantallas ---------- */
 .screen-guide {
   display: flex;

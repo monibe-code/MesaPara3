@@ -99,6 +99,89 @@ const contactForm = document.getElementById('contact-form');
 if (contactForm) {
   const loadedAt = Date.now();
 
+  // --- Mensajes por campo ---
+  const FIELD_MESSAGES = {
+    nombre:  { valueMissing: 'Tienes que escribir tu nombre.' },
+    email:   {
+      valueMissing: 'Te falta la dirección de correo electrónico.',
+      typeMismatch: 'Ese correo no parece válido. Revisa que tenga formato nombre@dominio.es'
+    },
+    motivo:  { valueMissing: 'Selecciona un motivo para tu mensaje.' },
+    mensaje: { valueMissing: 'Escribe tu mensaje.' },
+    legal:   { valueMissing: 'Debes aceptar el aviso legal y la política de privacidad.' }
+  };
+
+  const MAX_FILE_MB = 5;
+
+  // Devuelve el texto del error de un campo ('' si es válido)
+  function getErrorMessage(field) {
+    const msgs = FIELD_MESSAGES[field.name] || {};
+    const isBlank = field.type === 'checkbox'
+      ? !field.checked
+      : field.value.trim() === '';   // evita que "   " cuente como relleno
+
+    if (field.required && isBlank) {
+      return msgs.valueMissing || 'Este campo es obligatorio.';
+    }
+    if (field.validity.typeMismatch) {
+      return msgs.typeMismatch || 'El formato no es válido.';
+    }
+    // Tamaño máximo de la captura de pantalla
+    if (field.type === 'file' && field.files.length > 0) {
+      if (field.files[0].size > MAX_FILE_MB * 1024 * 1024) {
+        return `La imagen es demasiado grande. El límite es de ${MAX_FILE_MB} MB.`;
+      }
+    }
+    return '';
+  }
+
+  // Pinta u oculta el mensaje bajo el campo
+  function setFieldError(field, message) {
+    const errorId = `${field.id}-error`;
+    let el = document.getElementById(errorId);
+
+    if (!el) {
+      el = document.createElement('span');
+      el.id = errorId;
+      el.className = 'field-error';
+      el.setAttribute('role', 'alert');
+      if (field.type === 'checkbox') {
+        field.closest('.checkbox-field').appendChild(el);
+      } else {
+        field.insertAdjacentElement('afterend', el);
+      }
+    }
+
+    el.textContent = message;
+    el.style.display = message ? 'block' : 'none';
+    field.classList.toggle('is-invalid', Boolean(message));
+    field.setAttribute('aria-invalid', message ? 'true' : 'false');
+    if (message) field.setAttribute('aria-describedby', errorId);
+    else field.removeAttribute('aria-describedby');
+  }
+
+  // Campos a validar (todos menos el honeypot y el botón, que no tiene name)
+  const fieldsToValidate = [...contactForm.elements].filter(
+    f => f.name && f.name !== 'empresa_web'
+  );
+
+  function validateField(field) {
+    const message = getErrorMessage(field);
+    setFieldError(field, message);
+    return message === '';
+  }
+
+  // Validación en vivo: al salir del campo y, si ya había error, mientras se corrige
+  fieldsToValidate.forEach(field => {
+    field.addEventListener('blur', () => validateField(field));
+    const evt = (field.type === 'checkbox' || field.tagName === 'SELECT' || field.type === 'file')
+      ? 'change' : 'input';
+    field.addEventListener(evt, () => {
+      if (field.classList.contains('is-invalid')) validateField(field);
+    });
+  });
+
+  // --- Envío del formulario ---
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -107,21 +190,11 @@ if (contactForm) {
     successBox.style.display = 'none';
     errorBox.style.display = 'none';
 
-  // --- Validación de campos vacíos ---
-    const emptyField = REQUIRED_FIELDS
-      .map(name => contactForm.querySelector(`[name="${name}"]`))
-      .find(field => field && field.value.trim() === '');
+    // --- Validación al enviar ---
+    const invalidFields = fieldsToValidate.filter(field => !validateField(field));
 
-    if (emptyField) {
-      errorBox.textContent = 'Por favor, rellena todos los campos obligatorios.';
-      errorBox.style.display = 'block';
-      emptyField.focus();
-      return;
-    }
-
-    // Valida también el formato del email y demás reglas nativas (type="email", etc.)
-    if (!contactForm.checkValidity()) {
-      contactForm.reportValidity();
+    if (invalidFields.length) {
+      invalidFields[0].focus();   // lleva al usuario al primer error
       return;
     }
 
@@ -135,21 +208,6 @@ if (contactForm) {
       successBox.style.display = 'block';
       contactForm.reset();
       return;
-    }
-    // Validar tamaño máximo del archivo de captura (ej. 5 MB) ---
-    const fileInput = contactForm.querySelector('input[name="captura"]');
-    if (fileInput && fileInput.files.length > 0) {
-      const file = fileInput.files[0];
-      const MAX_SIZE_MB = 5;
-      const MAX_SIZE_BYTES = MAX_SIZE_MB * 1024 * 1024;
-
-      if (file.size > MAX_SIZE_BYTES) {
-        if (errorBox) {
-          errorBox.textContent = `La imagen es demasiado grande. El límite es de ${MAX_SIZE_MB} MB.`;
-          errorBox.style.display = 'block';
-        }
-        return; // Detenemos el envío
-      }
     }
 
     // Recogemos los datos introducidos en el formulario
@@ -179,6 +237,4 @@ if (contactForm) {
       errorBox.style.display = 'block';
     }
   });
-
-
 }
