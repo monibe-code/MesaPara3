@@ -7,40 +7,6 @@
   <meta name="description" content="Descubre MesaPara3, red social centrada en planes. Crea o apúntate a cenas, excursiones y actividades cerca de ti.">
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="icon" href="assets/favicon.ico">
-  <style>
-    /* Botón de la sección "Cómo funciona" */
-    .section-action { text-align: center; margin-top: 40px; }
-
-    /* Sección Para empresas */
-    .biz-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-    .biz-copy h2 { margin-bottom: 16px; }
-    .biz-copy .btn { margin-top: 24px; }
-
-    .growth-chart { width: 100%; }
-    .growth-chart svg { width: 100%; height: auto; display: block; }
-    .growth-chart .axis { stroke: currentColor; opacity: .25; stroke-width: 1; }
-    .growth-chart .grid { stroke: currentColor; opacity: .1; stroke-width: 1; }
-    .growth-chart .tick { fill: currentColor; opacity: .6; font-size: 12px; font-family: inherit; }
-    .growth-chart .line-base { fill: none; stroke: currentColor; opacity: .35; stroke-width: 3; stroke-dasharray: 6 6; stroke-linecap: round; }
-    .growth-chart .line-up { fill: none; stroke: var(--primary, #375BA7); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
-    .growth-chart .area-up { fill: var(--primary, #375BA7); opacity: .12; }
-    .growth-chart .dot-up { fill: var(--primary, #375BA7); }
-    .growth-chart .label { fill: currentColor; font-size: 13px; font-weight: 600; font-family: inherit; }
-    .growth-chart .label-up { fill: var(--primary, #375BA7); }
-    .chart-caption { font-size: .85rem; margin-top: 8px; }
-
-    /* Sección Nuestro próximo objetivo */
-    .goal-card .btn { margin-top: 28px; }
-
-    @media (max-width: 800px) {
-      .biz-grid { grid-template-columns: 1fr; gap: 32px; }
-    }
-  </style>
 </head>
 <body>
 
@@ -51,16 +17,13 @@
   <section class="hero">
     <div class="container">
       <div class="reveal in">
-        <span class="eyebrow">
-          <img src="/assets/logo.webp" alt="Logo MesaPara3" class="eyebrow-logo" title="logo MesaPara3">
-          Gratis · Grupos min 3 personas · Sin nada raro
-        </span>
-        <h1>La nueva red social basada en planes, no en usuarios</h1>
-        <p class="lede">¿Te apetece levantarte del sofá para hacer algo diferente y no tienes con quién? Encontrar con quien compartir tus planes nunca fue tan fácil: tapeo, cine, deporte, juegos de mesa o lo que se te ocurra. Nada de líos, solo buena compañía.</p>
+          <img src="/assets/logo.png" alt="Logo MesaPara3" title="logo MesaPara3" class="hero-logo">
+        <h1>La red social basada en planes</h1>
+        <p class="lede">¿Te apetece levantarte del sofá para hacer algo diferente y no tienes con quién? Organiza o únete a actividades en grupo de forma sencilla, gratis y sin sorpresas.</p>
         <div class="hero-actions" id="descarga">
           <a href="#" class="btn btn-gradient btn-lg">Pronto en la Play Store</a>
         </div>
-        <p class="store-note">Pronto disponible para Android. Gratis, sin sorpresas.</p>
+        <p class="store-note">Androd·Gratis·Grupos min 3 personas</p>
       </div>
       <div class="phone-mock reveal in">
         <div class="screen">
@@ -73,7 +36,7 @@
   <section>
     <div class="container">
       <div class="section-head reveal">
-        <span class="badge">¿Qué es MesaPara3?</span>
+        <span class="badge">¿Cómo funciona?</span>
         <h2>Propón. Conecta. Queda</h2>
         <p class="text-muted">En MesaPara3 puedes crear un plan de 3, 6 o las personas que quieras. La gente se apunta, la "mesa" se llena y la quedada se hace realidad.</p>
       </div>
@@ -93,48 +56,22 @@
           <h3>Comunidad de confianza</h3>
           <p class="text-muted">Nada romántico, sexual ni erótico: va en contra de las normas. Reportar es fácil y las sanciones son reales.</p>
         </div>
+        
       </div>
-    </div>
-  </section>
-
-  <section class="section-tint">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="badge">Cómo funciona</span>
-        <h2>De la app a la mesa, en tres pasos</h2>
-      </div>
-      <div class="steps">
-        <div class="step reveal">
-          <span class="num">01</span>
-          <h3>Creas tu perfil</h3>
-          <p class="text-muted">Foto, nombre, edad, habla un poco de ti, di ciudad donde vives (opcional) y hasta puedes personalizar tu app con uno de los fondos tan chulos que trae. </p>
-        </div>
-        <div class="step reveal">
-          <span class="num">02</span>
-          <h3>Buscas o creas un plan</h3>
-          <p class="text-muted">Busca por mapa o por listado, y puedes aplicar filtros si tienes algo concreto en mente. Si no hay ningún plan de tu agrado en las fechas que te viene bien... ¡crea tú uno!</p>
-        </div>
-        <div class="step reveal">
-          <span class="num">03</span>
-          <h3>Disfrutáis el plan</h3>
-          <p class="text-muted">Quedas con los otros usuarios y, si queréis, os hacéis una foto para el recuerdo y la subís al plan.</p>
-        </div>
-      </div>
-      <div class="section-action reveal">
+            <div class="section-action reveal">
         <a href="/guia-de-uso" class="btn btn-gradient btn-lg">Ver Guía de Uso</a>
       </div>
     </div>
   </section>
 
   <!-- PARA EMPRESAS -->
-  <section>
+  <section class="section-tint">
     <div class="container">
+      <span class="badge">Para empresas</span>
       <div class="biz-grid">
         <div class="biz-copy reveal">
-          <span class="badge">Para empresas</span>
           <h2>Multiplica los clientes de tu negocio dándolo a conocer a través de la app.</h2>
           <p class="text-muted">Restaurantes, escape rooms, boleras… Los planes de MesaPara3 ya tienen sitio y hora: haz que el tuyo sea el elegido.</p>
-          <a href="/empresas" class="btn btn-gradient btn-lg">Ver opciones para empresas</a>
         </div>
 
         <div class="growth-chart reveal">
@@ -175,11 +112,12 @@
           <p class="text-muted chart-caption">Gráfica ilustrativa del crecimiento de clientes al contratar el servicio.</p>
         </div>
       </div>
+      <a href="/empresas" class="btn btn-gradient btn-lg">Ver opciones para empresas</a>
     </div>
   </section>
 
   <!-- NUESTRO PRÓXIMO OBJETIVO -->
-  <section class="section-tint">
+  <section>
     <div class="container">
       <div class="section-head reveal">
         <span class="badge">Apoya el proyecto</span>

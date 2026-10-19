@@ -287,7 +287,6 @@ section { padding: 88px 0; }
   position: relative;
   overflow: hidden;
 }
-/* Panel redondeado claro, como la tarjeta del titular en la app */
 .hero .container {
   display: grid;
   grid-template-columns: 1.1fr .9fr;
@@ -297,34 +296,26 @@ section { padding: 88px 0; }
   border-radius: var(--radius-lg);
   padding: 56px 48px;
 }
+.hero-logo { height: 150px; width: auto; margin: 0 auto 16px; display: block; }
+.hero .reveal.in {text-align: center;}
+.hero-actions {justify-content: center;}
 @media (max-width: 900px) {
   .hero .container { grid-template-columns: 1fr; padding: 40px 28px; }
 }
 @media (max-width: 640px) {
-  .hero { padding: 32px 0 32px; }
+  .hero { padding: 0px 32px 32px 0px; }
   .hero .container { padding: 32px 20px; gap: 36px; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-actions .btn { width: 100%; text-align: center; }
+  .hero .reveal.in {text-align: center;}
 }
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
-  font-size: .82rem;
-  font-weight: 500;
-  color: var(--color-text-muted);
-  margin-bottom: 20px;
-}
+
 .hero h1 { font-size: clamp(2.2rem, 4.4vw, 3.4rem); }
-.hero .lede { font-size: 1.15rem; color: var(--color-text-muted); max-width: 46ch; }
-.hero-actions { display: flex; gap: 14px; align-items: center; margin-top: 32px; flex-wrap: wrap; }
+.hero .lede { font-size: 1.15rem; color: var(--color-text-muted); max-width: 46ch; margin: 0 auto; }
+.hero-actions { display: flex; gap: 14px; align-items: center; margin: 32px auto 0; flex-wrap: wrap; }
 .store-note { font-size: .82rem; color: var(--color-text-muted); }
 
-/* Mock de teléfono (sin capturas reales todavía) */
+/* Mock de teléfono */
 .phone-mock {
   justify-self: center;
   width: 260px;
@@ -373,6 +364,8 @@ section { padding: 88px 0; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 @media (max-width: 820px) { .grid-3, .grid-2 { grid-template-columns: 1fr; } }
+/* Contacto: en móvil, la tarjeta "Antes de escribir" va antes del formulario */
+@media (max-width: 820px) { .contact-grid > .card { order: -1; } }
 
 .card {
   display: flex;
@@ -423,6 +416,39 @@ section { padding: 88px 0; }
   margin-bottom: 8px;
   display: block;
 }
+
+    /* Botón de la sección "Cómo funciona" */
+    .section-action { text-align: center; margin-top: 40px; }
+
+    /* Sección Para empresas */
+    .biz-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .biz-copy h2 { margin-bottom: 16px; }
+    .biz-copy .btn { margin-top: 24px; }
+
+    .growth-chart { width: 100%; }
+    .growth-chart svg { width: 80%; height: auto; display: block; }
+    .growth-chart .axis { stroke: currentColor; opacity: .25; stroke-width: 1; }
+    .growth-chart .grid { stroke: currentColor; opacity: .1; stroke-width: 1; }
+    .growth-chart .tick { fill: currentColor; opacity: .6; font-size: 12px; font-family: inherit; }
+    .growth-chart .line-base { fill: none; stroke: currentColor; opacity: .35; stroke-width: 3; stroke-dasharray: 6 6; stroke-linecap: round; }
+    .growth-chart .line-up { fill: none; stroke: var(--primary, #375BA7); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .growth-chart .area-up { fill: var(--primary, #375BA7); opacity: .12; }
+    .growth-chart .dot-up { fill: var(--primary, #375BA7); }
+    .growth-chart .label { fill: currentColor; font-size: 13px; font-weight: 600; font-family: inherit; }
+    .growth-chart .label-up { fill: var(--primary, #375BA7); }
+    .chart-caption { font-size: .85rem; margin-top: 8px; }
+
+    /* Sección Nuestro próximo objetivo */
+    .goal-card .btn { margin-top: 28px; }
+
+    @media (max-width: 800px) {
+      .biz-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
 
 /* ---------- Franja CTA (azul marino, como las barras de la app) ---------- */
 .cta-band {
@@ -537,7 +563,7 @@ a.card:hover .card-action {
 }
 .screen-guide-text { max-width: 320px; padding-top: 4px; }
 @media (max-width: 780px) {
-  .screen-guide { flex-direction: column !important; align-items: center; text-align: center; gap: 20px; }
+  .screen-guide { flex-direction: column-reverse !important; align-items: center; text-align: center; gap: 20px; }
   .screen-guide-text { max-width: 100%; text-align: left; }
 }
 .screen-frame {
