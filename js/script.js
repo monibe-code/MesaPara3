@@ -126,6 +126,13 @@ if (contactForm) {
     if (field.validity.typeMismatch) {
       return msgs.typeMismatch || 'El formato no es válido.';
     }
+    // Email: exige dominio con punto y extensión de 2 letras o más (.es, .com, .info...)
+    if (field.type === 'email' && field.value.trim() !== '') {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
+      if (!emailRegex.test(field.value.trim())) {
+        return msgs.typeMismatch || 'El formato no es válido.';
+      }
+    }
     // Tamaño máximo de la captura de pantalla
     if (field.type === 'file' && field.files.length > 0) {
       if (field.files[0].size > MAX_FILE_MB * 1024 * 1024) {
