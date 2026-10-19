@@ -156,7 +156,7 @@ if (contactForm) {
     const formData = new FormData(contactForm);
 
     // Tu clave de Web3Forms
-    formData.append('access_key', '84253598-24f5-49a1-9e3d-5b9e082bf7a6');
+    formData.append('access_key', 'f54e9023-e62e-4901-a3db-0fd095c5d4ee');
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {

@@ -13,7 +13,7 @@
   --color-bg: #FFFFFF;
   --color-surface: #F8FAFC;        /* blanco azulado */
   --color-text: #123B78;           /* azul intenso */
-  --color-text-muted: #54749B;     /* azul suave */
+  --color-text-muted: #3f5d83;     /* azul suave */
   --color-border: #D5E6F2;
   --color-avatar-bg: #E1F5F2;      /* verde agua muy suave */
 
@@ -23,6 +23,7 @@
   --color-azulito: #40D5F1;
   --color-verde: #47AE79;
   --color-turquesaclaro: #46ebc7;
+  --color-mint: #EDF8F8;
 
   --gradient-brand: linear-gradient(90deg, #375BA7 0%, #20A4A6 50%, #44AD74 100%);
   --gradient-critico: linear-gradient(90deg, #375BA7 0%, #1E293B 100%);
@@ -282,7 +283,7 @@ section { padding: 88px 0; }
 /* ---------- Hero ---------- */
 .hero {
   padding: 72px 0 64px;
-  background: var(--color-surface);
+  background: var(--color-mint);
   position: relative;
   overflow: hidden;
 }
@@ -292,7 +293,7 @@ section { padding: 88px 0; }
   grid-template-columns: 1.1fr .9fr;
   gap: 56px;
   align-items: center;
-  background: var(--color-surface);
+  background: transparent;
   border-radius: var(--radius-lg);
   padding: 56px 48px;
 }
@@ -400,6 +401,11 @@ section { padding: 88px 0; }
 
 .section-head { max-width: 640px; margin: 0 auto 48px; text-align: center; }
 .section-head.left { margin: 0 0 40px; text-align: left; }
+
+/* ---------- Secciones con fondo de color mint ----------*/
+.section-tint{
+  background: var(--color-mint);
+}
 
 /* ---------- Pasos numerados (cómo funciona) ---------- */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; counter-reset: step; }
@@ -683,8 +689,8 @@ a.card:hover .card-action {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 2px solid var(--color-verde);
-  background: var(--color-bar);
+  border: 2px solid var(--color-bar);
+  background: var(--gradient-brand);
   color: #fff;
   display: flex;
   align-items: center;
