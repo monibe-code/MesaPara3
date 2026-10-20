@@ -303,7 +303,7 @@ section { padding: 88px 0; }
   .hero .container { grid-template-columns: 1fr; padding: 40px 28px; }
 }
 @media (max-width: 640px) {
-  .hero { padding: 0px 32px 32px 0px; }
+  .hero { padding: 0 0 32px; }
   .hero .container { padding: 32px 20px; gap: 36px; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-actions .btn { width: 100%; text-align: center; }
@@ -427,6 +427,8 @@ section { padding: 88px 0; }
       gap: 48px;
       align-items: center;
     }
+    .section-biz .container { text-align: center; }
+    .biz-copy, .growth-chart { text-align: left; }
     .biz-copy h2 { margin-bottom: 16px; }
     .biz-copy .btn { margin-top: 24px; }
 
@@ -448,6 +450,19 @@ section { padding: 88px 0; }
 
     @media (max-width: 800px) {
       .biz-grid { grid-template-columns: 1fr; gap: 32px; }
+
+      /* Para empresas: todo centrado en móvil */
+      .biz-copy, .growth-chart { text-align: center; }
+      .biz-copy .btn { margin-top: 0; }
+
+      /* Gráfico a todo el ancho, centrado y con textos algo mayores */
+      .growth-chart svg { width: 100%; max-width: 560px; margin: 0 auto; overflow: visible; }
+      .growth-chart .tick { font-size: 13px; }
+      .growth-chart .label { font-size: 14px; }
+    }
+    @media (max-width: 480px) {
+      /* Aprovecha un poco más el ancho de la pantalla */
+      .growth-chart { width: calc(100% + 12px); margin-left: -6px; }
     }
 
 /* ---------- Franja CTA (azul marino, como las barras de la app) ---------- */
@@ -564,7 +579,7 @@ a.card:hover .card-action {
 .screen-guide-text { max-width: 320px; padding-top: 4px; }
 @media (max-width: 780px) {
   .screen-guide { flex-direction: column-reverse !important; align-items: center; text-align: center; gap: 20px; }
-  .screen-guide-text { max-width: 100%; text-align: left; }
+  .screen-guide-text { max-width: 100%; text-align: center; }
 }
 .screen-frame {
   width: 200px;
@@ -663,6 +678,53 @@ a.card:hover .card-action {
 .badge-pip.lvl-2 { background: linear-gradient(90deg, #135caf, #061f3b ) }
 .badge-pip.lvl-3 { background: linear-gradient(90deg, #ffe066, #f5a300); }
 
+/* ---------- Insignias en carrusel horizontal ---------- */
+.grid-3.badge-grid {
+  display: flex;                      /* anula el grid de 3 columnas */
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 4px;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 6px 4px 18px;              /* hueco para que no se recorte la sombra */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-border);
+}
+.badge-grid::-webkit-scrollbar { height: 8px; }
+.badge-grid::-webkit-scrollbar-track { background: var(--color-border); border-radius: 999px; }
+.badge-grid::-webkit-scrollbar-thumb { background: var(--color-primary); border-radius: 999px; }
+
+.badge-grid .badge-card {
+  flex: 0 0 210px;                    /* ancho fijo: se ve asomar la siguiente */
+  scroll-snap-align: start;
+  padding: 20px 18px;
+  /* las tarjetas fuera de pantalla no deben esperar al efecto .reveal */
+  opacity: 1;
+  transform: none;
+}
+.badge-grid .badge-icon { width: 56px; height: 56px; margin-bottom: 12px; }
+.badge-grid .badge-card h3 { font-size: 1.05rem; }
+.badge-grid .badge-card p  { font-size: .9rem; margin-bottom: 0; text-align: center;}
+.badge-grid .badge-levels  { margin-top: auto; padding-top: 14px; }  /* pips siempre abajo */
+
+.badge-grid {
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.badge-grid img { pointer-events: none; -webkit-user-drag: none; }
+
+.badge-grid.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;   /* si no, el snap "devuelve" el scroll mientras arrastras */
+}
+
+@media (max-width: 480px) {
+  .badge-grid .badge-card { flex-basis: 180px; }
+}
+
+
 /* ---------- Legal ---------- */
 .legal-content h2 { margin-top: 2em; font-size: 1.3rem; }
 .legal-content h3 { font-size: 1.05rem; margin-top: 1.6em; }
@@ -686,8 +748,24 @@ a.card:hover .card-action {
   gap: 32px;
   margin-bottom: 48px;
 }
+
+
 @media (max-width: 780px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } }
+@media (max-width: 480px) {
+  .footer-brand {
+    text-align: center;
+  }
+
+  .footer-brand .brand {
+    justify-content: center; /* tu .brand es display:flex, así que centra logo + nombre */
+  }
+
+  .footer-brand .text-muted {
+    margin-left: auto;   /* los párrafos tienen max-width: 32ch, */
+    margin-right: auto;  /* así que hay que centrar también la caja */
+  }
+}
 .site-footer .brand { font-size: 1.25rem; }
 .site-footer p { color: var(--color-on-bar-muted); }
 .footer-title {

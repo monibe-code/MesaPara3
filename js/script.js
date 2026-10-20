@@ -32,8 +32,21 @@ function initHeader() {
     navToggle.addEventListener('click', () => {
       mainNav.classList.toggle('open');
     });
+
     mainNav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => mainNav.classList.remove('open'));
+    });
+
+    // Cierra el menú al pinchar fuera de él
+    document.addEventListener('click', (e) => {
+      if (!mainNav.classList.contains('open')) return;
+      if (mainNav.contains(e.target) || navToggle.contains(e.target)) return;
+      mainNav.classList.remove('open');
+    });
+
+    // Opcional: cierra también con la tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') mainNav.classList.remove('open');
     });
   }
 
@@ -46,7 +59,6 @@ function initHeader() {
     if (link.dataset.page === slug) link.classList.add('active');
   });
 }
-
 // ============ Año actual en el footer (tras inyectar el footer) ============
 function initFooterYear() {
   document.querySelectorAll('.current-year').forEach(el => {
@@ -239,3 +251,37 @@ if (contactForm) {
     }
   });
 }
+      (function () {
+  var carousel = document.querySelector('.badge-grid');
+  console.log('Carrusel insignias:', carousel ? 'encontrado' : 'NO encontrado');
+  if (!carousel) return;
+
+  var isDown = false, startX = 0, startScroll = 0;
+
+  carousel.addEventListener('mousedown', function (e) {
+    if (e.button !== 0) return;
+    console.log('mousedown en el carrusel');
+    e.preventDefault();
+    isDown = true;
+    startX = e.clientX;
+    startScroll = carousel.scrollLeft;
+    carousel.style.scrollSnapType = 'none';   // quita el imán mientras arrastras
+    carousel.style.scrollBehavior = 'auto';   // sin scroll suave que retrase el movimiento
+    carousel.classList.add('is-dragging');
+  });
+
+  window.addEventListener('mousemove', function (e) {
+    if (!isDown) return;
+    carousel.scrollLeft = startScroll - (e.clientX - startX);
+  });
+
+  window.addEventListener('mouseup', function () {
+    if (!isDown) return;
+    isDown = false;
+    carousel.classList.remove('is-dragging');
+    carousel.style.scrollSnapType = '';       // vuelve el imán al soltar
+  });
+
+  carousel.addEventListener('dragstart', function (e) { e.preventDefault(); });
+})();
+
