@@ -427,7 +427,6 @@ section { padding: 88px 0; }
   }
   .store-note { text-align: center; }
   .hero-steps img { width: 64px; height: 64px; }
-  .phone-mock { margin-top: 35px;}
 }
 
 /* Mock de teléfono */
@@ -442,6 +441,7 @@ section { padding: 88px 0; }
   padding: 12px;
   box-shadow: 0 30px 60px rgba(6, 31, 59, 0.30);
   position: relative;
+  margin-top: 35px;
 }
 .phone-mock .screen {
   width: 100%;
