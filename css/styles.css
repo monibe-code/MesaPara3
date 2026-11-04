@@ -414,7 +414,9 @@ section { padding: 88px 0; }
   .hero-steps { margin-top: 8px; }
 }
 @media (max-width: 640px) {
-  .hero { padding: 0 0 32px; }
+  .hero { padding: 20px 0 32px 0; }
+  .hero h1 { padding-bottom: 30px;}
+  .lede { text-align: center;}
   .hero .container { padding: 28px 20px; row-gap: 14px; }
   .hero-actions .btn {
     width: 100%;
@@ -425,6 +427,7 @@ section { padding: 88px 0; }
   }
   .store-note { text-align: center; }
   .hero-steps img { width: 64px; height: 64px; }
+  .phone-mock { margin-top: 35px;}
 }
 
 /* Mock de teléfono */
