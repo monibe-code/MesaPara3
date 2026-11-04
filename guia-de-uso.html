@@ -14,12 +14,12 @@
 
   <main>
 
-  <section style="padding-bottom:40px;">
+  <section style="padding-bottom:24px;">
     <div class="container">
-      <div class="section-head reveal">
+      <div class="section-head section-head-tight reveal">
         <span class="badge">Guía de uso</span>
         <h1>Cómo funciona MesaPara3</h1>
-        <p class="text-muted" style="max-width:60ch;margin-left:auto;margin-right:auto;">MesaPara3 es una novedosa red social que ayuda a los usuarios a crear o a apuntarse a planes reales y salir de la rutina. </p><p class="text-muted" style="max-width:60ch;margin-left:auto;margin-right:auto;">Conoce a otras personas o queda con tus amigos de siempre, sin esos eternos chats intentando cuadrar sitio y hora.</p>
+        <p class="text-muted" style="max-width:60ch;margin-left:auto;margin-right:auto;">Conoce a otras personas o queda con tus amigos de siempre, sin esos eternos chats intentando cuadrar sitio y hora.</p>
       </div>
     </div>
   </section>
@@ -27,120 +27,115 @@
   <section style="padding-top:0;">
     <div class="container">
 
-      <div class="section-head reveal">
+      <div class="section-head section-head-compact reveal">
         <h2>Las pantallas de la app</h2>
       </div>
       
-      <!-- 1. Inicio de sesión -->
-      <div class="screen-guide reveal" style="flex-direction:row;">
-        <div class="screen-frame">
-          <img src="assets/capturas/inicio_sesion.webp" alt="Pantalla de inicio de sesión" title="Pantalla de inicio de sesión de la app" class="screen-img">
+      <!-- Slider de pantallas -->
+      <div class="screens-slider" role="region" aria-roledescription="carrusel" aria-label="Pantallas de la app">
+        <div class="slider-viewport">
+          <button type="button" class="slider-btn prev" aria-label="Pantalla anterior">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <div class="slider-track" tabindex="0" aria-label="Desliza para ver más pantallas">
+        <article class="slide" role="group" aria-roledescription="pantalla" aria-label="1 de 10">
+          <div class="screen-frame">
+            <img src="assets/capturas/inicio_sesion.webp" alt="Pantalla de inicio de sesión" title="Pantalla de inicio de sesión de la app" class="screen-img" draggable="false">
+          </div>
+          <div class="screen-guide-text">
+            <h3>Inicio de sesión</h3>
+            <p class="text-muted">Regístrate y luego accede aquí con tu correo electrónico y tu contraseña.</p>
+          </div>
+        </article>
+        <article class="slide" role="group" aria-roledescription="pantalla" aria-label="2 de 10">
+          <div class="screen-frame">
+            <img src="assets/capturas/home.webp" alt="Pantalla principal Home" title="Pantalla principal Home de la app" class="screen-img" draggable="false">
+          </div>
+          <div class="screen-guide-text">
+            <h3>Home</h3>
+            <p class="text-muted">El punto de partida principal de la app para acceder a todas las funcionalidades e interacciones principales.</p>
+          </div>
+        </article>
+        <article class="slide" role="group" aria-roledescription="pantalla" aria-label="3 de 10">
+          <div class="screen-frame">
+            <img src="assets/capturas/perfil.webp" alt="Pantalla de perfil" title="Pantalla de perfil de usuario en la app" class="screen-img" loading="lazy" draggable="false">
+          </div>
+          <div class="screen-guide-text">
+            <h3>Perfil</h3>
+            <p class="text-muted">Por respeto a los demás usuarios, lo primero es rellenar tus datos: foto, nombre, edad, ciudad de origen y bio.</p>
+          </div>
+        </article>
+        <article class="slide" role="group" aria-roledescription="pantalla" aria-label="4 de 10">
+          <div class="screen-frame">
+            <img src="assets/capturas/ajustes.jpg" alt="Pantalla de ajustes" title="Pantalla de ajustes en la app" class="screen-img" loading="lazy" draggable="false">
+          </div>
+          <div class="screen-guide-text">
+            <h3>Ajustes</h3>
+            <p class="text-muted">Fondos de pantalla para personalizar tu app, notificaciones e información legal.</p>
+          </div>
+        </article>
+        <article class="slide" role="group" aria-roledescription="pantalla" aria-label="5 de 10">
+          <div class="screen-frame">
+            <img src="assets/capturas/buscar_plan_mapa.webp" alt="Pantalla de buscar plan" title="Pantalla de buscar plan en la app" class="screen-img" loading="lazy" draggable="false">
+          </div>
+          <div class="screen-guide-text">
+            <h3>Buscar plan</h3>
+            <p class="text-muted">Por lista o por mapa, con o sin filtros. Encuentra planes cerca de ti, en la fecha que te venga bien.</p>
+          </div>
+        </article>
+        <article class="slide" role="group" aria-roledescription="pantalla" aria-label="6 de 10">
+          <div class="screen-frame">
+            <img src="assets/capturas/crear_plan.webp" alt="Pantalla de crear plan" title="Pantalla de crear plan nuevo" class="screen-img" loading="lazy" draggable="false">
+          </div>
+          <div class="screen-guide-text">
+            <h3>Crear plan</h3>
+            <p class="text-muted">Elige lugar, fecha y una breve descripción. Establece el rango de edad y el número de usuarios que se pueden apuntar al plan.</p>
+          </div>
+        </article>
+        <article class="slide" role="group" aria-roledescription="pantalla" aria-label="7 de 10">
+          <div class="screen-frame">
+            <img src="assets/capturas/tus_planes.webp" alt="Pantalla de vuestros planes" title="Pantalla con todos vuestros planes" class="screen-img" loading="lazy" draggable="false">
+          </div>
+          <div class="screen-guide-text">
+            <h3>Tus planes</h3>
+            <p class="text-muted">Todos los que has creado o a los que te has apuntado: disponibles, completos, pasados o cancelados.</p>
+          </div>
+        </article>
+        <article class="slide" role="group" aria-roledescription="pantalla" aria-label="8 de 10">
+          <div class="screen-frame">
+            <img src="assets/capturas/detalles_plan.webp" alt="Pantalla de detalles del plan" title="Pantalla de detalles del plan" class="screen-img" loading="lazy" draggable="false">
+          </div>
+          <div class="screen-guide-text">
+            <h3>Detalles del plan</h3>
+            <p class="text-muted">Toda la información de un plan concreto: lugar, fecha, quién se ha apuntado y acceso directo al chat.</p>
+          </div>
+        </article>
+        <article class="slide" role="group" aria-roledescription="pantalla" aria-label="9 de 10">
+          <div class="screen-frame">
+            <img src="assets/capturas/chat.webp" alt="Pantalla de chat" title="Pantalla del chat" class="screen-img" loading="lazy" draggable="false">
+          </div>
+          <div class="screen-guide-text">
+            <h3>Chat</h3>
+            <p class="text-muted">Un chat grupal sólo disponible desde el plan, con los otros usuarios para cuadrar los detalles antes de quedar.</p>
+          </div>
+        </article>
+        <article class="slide" role="group" aria-roledescription="pantalla" aria-label="10 de 10">
+          <div class="screen-frame">
+            <img src="assets/capturas/ficha_usuario.webp" alt="Pantalla de ficha de usuario" title="Pantalla de ficha de usuario" class="screen-img" loading="lazy" draggable="false">
+          </div>
+          <div class="screen-guide-text">
+            <h3>Ficha de usuario</h3>
+            <p class="text-muted">Antes de quedar, puedes ver el perfil público de los otros usuarios desde el plan.</p>
+          </div>
+        </article>
+          </div>
+          <button type="button" class="slider-btn next" aria-label="Pantalla siguiente">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
         </div>
-        <div class="screen-guide-text">
-          <h3>Inicio de sesión</h3>
-          <p class="text-muted">Regístrate abajo y luego accede aquí con tu correo electrónico y tu contraseña.</p>
-        </div>
-      </div>
-      
-      <!-- 2. Home -->
-      <div class="screen-guide reveal" style="flex-direction:row-reverse;">
-        <div class="screen-frame">
-          <img src="assets/capturas/home.webp" alt="Pantalla principal Home" title="Pantalla principal Home de la app" class="screen-img">
-        </div>
-        <div class="screen-guide-text">
-          <h3>Inicio</h3>
-          <p class="text-muted">El punto de partida principal de la app para acceder a todas las funcionalidades, novedades e interacciones principales.</p>
-        </div>
-      </div>
-      
-      <!-- 3. Perfil -->
-      <div class="screen-guide reveal" style="flex-direction:row;">
-        <div class="screen-frame">
-          <img src="assets/capturas/perfil.webp" alt="Pantalla de perfil" title="Pantalla de perfil de usuario en la app" class="screen-img">
-        </div>
-        <div class="screen-guide-text">
-          <h3>Perfil</h3>
-          <p class="text-muted">Por respeto a los demás usuarios, lo primero es rellenar tus datos: foto, nombre, edad, ciudad de origen y bio.</p>
-        </div>
-      </div>
-      
-      
-      <!-- 4. Ajustes -->
-      <div class="screen-guide reveal" style="flex-direction:row-reverse;">
-        <div class="screen-frame">
-          <img src="assets/capturas/ajustes.jpg" alt="Pantalla de ajustes" title="Pantalla de ajustes en la app" class="screen-img">
-        </div>
-        <div class="screen-guide-text">
-          <h3>Ajustes</h3>
-          <p class="text-muted">Fondos de pantalla para personalizar tu app, notificaciones, información legal y, si algún día quieres marcharte, la baja de la cuenta.</p>
-        </div>
-      </div>
-      
-      <!-- 5. Buscar plan -->
-      <div class="screen-guide reveal" style="flex-direction:row;">
-        <div class="screen-frame">
-          <img src="assets/capturas/buscar_plan_mapa.webp" alt="Pantalla de buscar plan" title="Pantalla de buscar plan en la app" class="screen-img">
-        </div>
-        <div class="screen-guide-text">
-          <h3>Buscar plan</h3>
-          <p class="text-muted">Por lista o por mapa, con o sin filtros. Encuentra planes cerca de ti, en la fecha que te venga bien.</p>
-        </div>
-      </div>
-      
-      <!-- 6. Crear plan -->
-      <div class="screen-guide reveal" style="flex-direction:row-reverse;">
-        <div class="screen-frame">
-          <img src="assets/capturas/crear_plan.webp" alt="Pantalla de crear plan" title="Pantalla de crear plan nuevo" class="screen-img">
-        </div>
-        <div class="screen-guide-text">
-          <h3>Crear plan</h3>
-          <p class="text-muted">Elige lugar, fecha y una breve descripción. Establece el rango de edad y el número de usuarios que se pueden apuntar al plan. También te hemos puesto una serie de ejemplos de planes por si te falta inspiración.</p>
-        </div>
-      </div>
-      
-      <!-- 7. Tus planes -->
-      <div class="screen-guide reveal" style="flex-direction:row;">
-        <div class="screen-frame">
-          <img src="assets/capturas/tus_planes.webp" alt="Pantalla de vuestros planes" title="Pantalla con todos vuestros planes" class="screen-img">
-        </div>
-        <div class="screen-guide-text">
-          <h3>Tus planes</h3>
-          <p class="text-muted">Todos los que has creado o a los que te has apuntado: disponibles, completos, pasados o cancelados.</p>
-        </div>
-      </div>
-      
-      <!-- 8. Detalles plan -->
-      <div class="screen-guide reveal" style="flex-direction:row-reverse;">
-        <div class="screen-frame">
-          <img src="assets/capturas/detalles_plan.webp" alt="Pantalla de detalles del plan" title="Pantalla de detalles del plan" class="screen-img">
-        </div>
-        <div class="screen-guide-text">
-          <h3>Detalles del plan</h3>
-          <p class="text-muted">Toda la información de un plan concreto: lugar, fecha, quién se ha apuntado y acceso directo al chat. También puedes ver desde aquí los detalles del anfitrión del plan.</p>
-        </div>
+        <div class="slider-dots" aria-label="Elegir pantalla"></div>
       </div>
 
-      <!-- 9. Chat -->
-      <div class="screen-guide reveal" style="flex-direction:row;">
-        <div class="screen-frame">
-          <img src="assets/capturas/chat.webp" alt="Pantalla de chat" title="Pantalla del chat" class="screen-img">
-        </div>
-        <div class="screen-guide-text">
-          <h3>Chat</h3>
-          <p class="text-muted">Un chat grupal sólo disponible desde el plan, con los otros usuarios para cuadrar los detalles antes de quedar.</p>
-        </div>
-      </div>
-      
-      <!-- 10. Ficha usuario -->
-      <div class="screen-guide reveal" style="flex-direction:row-reverse;">
-        <div class="screen-frame">
-          <img src="assets/capturas/ficha_usuario.webp" alt="Pantalla de ficha de usuario" title="Pantalla de ficha de usuario" class="screen-img">
-        </div>
-        <div class="screen-guide-text">
-          <h3>Ficha de usuario</h3>
-          <p class="text-muted">Antes de quedar, puedes ver el perfil público de los otros usuarios desde el plan.</p>
-        </div>
-      </div>
 
 
 
@@ -280,6 +275,82 @@
 
   <div id="site-footer"></div>
   
+
+  <script>
+  /* Slider de pantallas de la app */
+  (function () {
+    var slider = document.querySelector('.screens-slider');
+    if (!slider) return;
+    var track = slider.querySelector('.slider-track');
+    var slides = Array.prototype.slice.call(track.children);
+    var prev = slider.querySelector('.slider-btn.prev');
+    var next = slider.querySelector('.slider-btn.next');
+    var dotsBox = slider.querySelector('.slider-dots');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var current = 0, ticking = false, drag = null;
+
+    var dots = slides.map(function (s, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'slider-dot';
+      b.setAttribute('aria-label', 'Ir a la pantalla ' + (i + 1) + ' de ' + slides.length);
+      b.addEventListener('click', function () { goTo(i); });
+      dotsBox.appendChild(b);
+      return b;
+    });
+
+    function goTo(i) {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: i * track.clientWidth, behavior: reduce ? 'auto' : 'smooth' });
+    }
+
+    function update() {
+      current = Math.max(0, Math.min(slides.length - 1, Math.round(track.scrollLeft / track.clientWidth)));
+      dots.forEach(function (d, i) {
+        d.classList.toggle('is-active', i === current);
+        if (i === current) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current');
+      });
+      prev.disabled = current === 0;
+      next.disabled = current === slides.length - 1;
+    }
+
+    track.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { update(); ticking = false; });
+    }, { passive: true });
+
+    prev.addEventListener('click', function () { goTo(current - 1); });
+    next.addEventListener('click', function () { goTo(current + 1); });
+
+    track.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(current - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+    });
+
+    /* Arrastrar con el ratón (en táctil ya funciona el swipe nativo) */
+    track.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      drag = { x: e.clientX, left: track.scrollLeft };
+      track.classList.add('is-dragging');
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (drag) track.scrollLeft = drag.left - (e.clientX - drag.x);
+    });
+    window.addEventListener('pointerup', function () {
+      if (!drag) return;
+      drag = null;
+      track.classList.remove('is-dragging');
+      goTo(Math.round(track.scrollLeft / track.clientWidth));
+    });
+
+    window.addEventListener('resize', function () {
+      track.scrollTo({ left: current * track.clientWidth, behavior: 'auto' });
+    });
+
+    update();
+  })();
+  </script>
 
   <script src="js/script.js"></script>
 

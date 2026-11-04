@@ -287,33 +287,145 @@ section { padding: 88px 0; }
   position: relative;
   overflow: hidden;
 }
+
+/* Escritorio: a la izquierda texto + botón + fotos + fila Propón/Conecta/Queda; a la derecha el móvil */
 .hero .container {
   display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 56px;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, .8fr) auto;
+  grid-template-areas:
+    "copy  photos phone"
+    "steps steps  phone";
+  column-gap: 40px;
+  row-gap: 32px;
   align-items: center;
   background: transparent;
   border-radius: var(--radius-lg);
   padding: 56px 48px;
 }
-.hero-logo { height: 150px; width: auto; margin: 0 auto 16px; display: block; }
-.hero .reveal.in {text-align: center;}
-.hero-actions {justify-content: center;}
+
+.hero-copy   { grid-area: copy; text-align: left; }
+.hero-photos { grid-area: photos; }
+.hero-steps  { grid-area: steps; }
+.hero .phone-mock { grid-area: phone; }
+
+/* Titular grande */
+.hero h1 {
+  font-size: clamp(2.8rem, 5vw, 4.4rem);
+  line-height: 1.05;
+  margin: 0 0 .4em;
+  text-wrap: balance;
+}
+/* "comparte" en turquesa con subrayado curvo */
+.hero h1 .accent {
+  position: relative;
+  display: inline-block;
+  color: var(--color-primary);
+}
+.hero h1 .accent::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -.22em;
+  height: .3em;
+  /* trazo en arco (∩) que se afina en los extremos, como en el diseño */
+  background: #6fdcd2;   /* turquesa claro del diseño */
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'%3E%3Cpath d='M1 11 Q50 -1 99 11 Q50 4 1 11 Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'%3E%3Cpath d='M1 11 Q50 -1 99 11 Q50 4 1 11 Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+}
+.hero .lede {
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  max-width: 34ch;
+  margin: 0 0 24px;
+}
+.hero .lede strong { color: var(--color-text); }
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.store-note { font-size: .82rem; color: var(--color-text-muted); margin: 0; }
+
+/* Fotos inclinadas y solapadas (bolos, almuerzo, juegos) */
+.hero-photos {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1.45;
+}
+.hero-photos img {
+  position: absolute;
+  width: 72%;
+  height: auto;            /* anula el height="" del HTML, que las estiraba */
+  aspect-ratio: 1 / 1;     /* cuadradas */
+  object-fit: cover;
+  background: #fff;
+  border: 4px solid #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(6, 31, 59, .22);
+}
+.hero-photos .p1 { top: 0;   right: 0;   transform: rotate(8deg);  z-index: 1; }
+.hero-photos .p2 { top: 25%; right: 22%; transform: rotate(-6deg); z-index: 2; }
+.hero-photos .p3 { top: 50%; right: 4%;  transform: rotate(7deg);  z-index: 3; }
+
+/* Fila Propón · Conecta · Queda (con tus imágenes) */
+.hero-steps {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-weight: 700;
+  color: var(--color-text);
+}
+.hero-steps li {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.hero-steps li + li { border-left: 2px solid var(--color-border); }
+.hero-steps img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+
+/* Móvil: titular a todo el ancho; debajo texto+botón a la izquierda y fotos a la derecha */
 @media (max-width: 900px) {
-  .hero .container { grid-template-columns: 1fr; padding: 40px 28px; }
+  .hero .container {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+    grid-template-areas:
+      "title   title"
+      "lede    photos"
+      "actions photos"
+      "steps   steps"
+      "phone   phone";
+    column-gap: 12px;
+    row-gap: 16px;
+    padding: 40px 28px;
+  }
+  .hero-copy { display: contents; }
+  .hero h1 { grid-area: title; font-size: clamp(2.2rem, 10vw, 3.4rem); margin: 0; }
+  .hero .lede { grid-area: lede; font-size: 1.05rem; margin: 0; align-self: end; }
+  .hero-actions { grid-area: actions; align-items: center; align-self: start; }
+  .hero-steps { margin-top: 8px; }
 }
 @media (max-width: 640px) {
   .hero { padding: 0 0 32px; }
-  .hero .container { padding: 32px 20px; gap: 36px; }
-  .hero-actions { flex-direction: column; align-items: stretch; }
-  .hero-actions .btn { width: 100%; text-align: center; }
-  .hero .reveal.in {text-align: center;}
+  .hero .container { padding: 28px 20px; row-gap: 14px; }
+  .hero-actions .btn {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: .95rem;
+    white-space: normal;
+    text-align: center;
+  }
+  .store-note { text-align: center; }
+  .hero-steps img { width: 64px; height: 64px; }
 }
-
-.hero h1 { font-size: clamp(2.2rem, 4.4vw, 3.4rem); }
-.hero .lede { font-size: 1.15rem; color: var(--color-text-muted); max-width: 46ch; margin: 0 auto; }
-.hero-actions { display: flex; gap: 14px; align-items: center; margin: 32px auto 0; flex-wrap: wrap; }
-.store-note { font-size: .82rem; color: var(--color-text-muted); }
 
 /* Mock de teléfono */
 .phone-mock {
@@ -394,6 +506,11 @@ section { padding: 88px 0; }
 
 .section-head { max-width: 640px; margin: 0 auto 48px; text-align: center; }
 .section-head.left { margin: 0 0 40px; text-align: left; }
+/* Cabeceras de sección con menos aire (guía de uso) */
+.section-head.section-head-tight { margin-bottom: 0; }
+.section-head.section-head-tight p:last-child { margin-bottom: 0; }
+.section-head.section-head-compact { margin-bottom: 20px; }
+.section-head.section-head-compact h2 { margin-bottom: 0; }
 
 /* ---------- Secciones con fondo de color mint ----------*/
 .section-tint{
@@ -602,6 +719,99 @@ a.card:hover .card-action {
 }
 @media (max-width: 480px) {
   .screen-frame { width: 160px; height: 320px; }
+}
+
+/* ---------- Guía de uso: slider de pantallas ---------- */
+.screen-frame .screen-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 20px;
+}
+.screens-slider { max-width: 760px; margin: 0 auto; }
+.slider-viewport { position: relative; }
+.slider-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 8px 0;
+  cursor: grab;
+}
+.slider-track::-webkit-scrollbar { display: none; }
+.slider-track.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;   /* si no, el snap "devuelve" el scroll mientras arrastras */
+  user-select: none;
+  -webkit-user-select: none;
+}
+.slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 0 72px;
+}
+.slide .screen-guide-text { max-width: 300px; }
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border);
+  background: #fff;
+  color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: opacity .15s ease, border-color .15s ease;
+}
+.slider-btn.prev { left: 0; }
+.slider-btn.next { right: 0; }
+.slider-btn:hover:not(:disabled) { border-color: var(--color-primary); }
+.slider-btn:disabled { opacity: .35; cursor: default; }
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.slider-dot {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-border);
+  cursor: pointer;
+  transition: width .25s ease, background .25s ease;
+}
+.slider-dot::after { content: ""; position: absolute; inset: -8px; }   /* zona de toque más grande */
+.slider-dot.is-active { width: 28px; background: var(--gradient-brand); }
+
+@media (max-width: 780px) {
+  .slide { flex-direction: column-reverse; gap: 20px; padding: 0 46px; text-align: center; }
+  .slide .screen-guide-text { max-width: 100%; }
+  .slider-btn { width: 38px; height: 38px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .slider-dot { transition: none; }
 }
 
 /* ---------- Empresas: lista de sectores ---------- */
